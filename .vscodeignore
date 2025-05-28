@@ -1,0 +1,15 @@
+.vscode/**
+.vscode-test/**
+**/__pycache__/**
+**/.pytest_cache/**
+**/*.py[cod]
+# Don't ignore node_modules so dependencies are bundled
+# **/node_modules/**
+**/.git/**
+.gitignore
+vsc-extension-quickstart.md
+**/*.log
+**/*.pyc
+.eslintrc.json
+**/*.tgz
+**/*.vsix

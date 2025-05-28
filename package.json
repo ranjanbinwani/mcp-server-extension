@@ -1,0 +1,35 @@
+{
+  "name": "mcp-server-extension",
+  "displayName": "MCP Server",
+  "description": "A basic MCP server for tool exposure using FastMCP",
+  "version": "0.1.0",
+  "publisher": "user",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ranjanbinwani/mcp-server-extension"
+  },
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Other"
+  ],  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./extension.js",  "contributes": {
+    "commands": [
+      {
+        "command": "mcp-server.start",
+        "title": "Start MCP Server"
+      },
+      {
+        "command": "mcp-server.stop",
+        "title": "Stop MCP Server"
+      }
+    ]
+  },"scripts": {
+    "package": "vsce package"
+  },  "dependencies": {
+    "execa": "^5.1.1"
+  }
+}
