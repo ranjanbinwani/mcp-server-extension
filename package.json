@@ -2,7 +2,7 @@
   "name": "mcp-server-extension",
   "displayName": "MCP Server",
   "description": "A basic MCP server for tool exposure using FastMCP",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "publisher": "user",
   "repository": {
     "type": "git",
@@ -26,7 +26,17 @@
         "command": "mcp-server.stop",
         "title": "Stop MCP Server"
       }
-    ]
+    ],
+    "configuration": {
+      "title": "MCP Server",
+      "properties": {
+        "mcp.servers": {
+          "type": "object",
+          "description": "MCP Server configurations for GitHub Copilot",
+          "default": {}
+        }
+      }
+    }
   },"scripts": {
     "package": "vsce package"
   },  "dependencies": {

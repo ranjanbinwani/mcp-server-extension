@@ -1,5 +1,7 @@
 node_modules/
-*.vsix
+# Keep the latest .vsix file for distribution
+# *.vsix
+mcp-server-extension-0.1.0.vsix
 __pycache__/
 *.py[cod]
 *$py.class

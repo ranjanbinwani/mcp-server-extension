@@ -11,7 +11,7 @@ from fastmcp import FastMCP
 async def main():
     server = FastMCP(
         server_name="VSCode-MCP-Server",
-        server_version="0.1.0",
+        server_version="0.2.0",
         description="A basic MCP server for tool exposure"
     )
     
@@ -64,8 +64,9 @@ async def main():
         except Exception as e:
             return [f"Error: {str(e)}"]
 
+    # Run server using stdio for GitHub Copilot compatibility
     try:
-        await server.run_http_async(host="localhost", port=8000)
+        await server.run_stdio_async()
     except KeyboardInterrupt:
         pass
 

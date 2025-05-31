@@ -42,16 +42,44 @@ Simple VS Code extension that automatically starts an MCP server for GitHub Copi
 
 ## Usage
 
-1. The extension starts automatically when VS Code loads
-2. Open GitHub Copilot Chat
-3. Ask questions like "Add 15 and 27" or "List files in current directory"
+1. **Install the extension** - The extension automatically configures itself when VS Code loads
+2. **Restart VS Code** after installation to ensure proper configuration
+3. **Open GitHub Copilot Chat**
+4. **Ask questions** like:
+   - "Add 15 and 27"
+   - "What's the weather forecast for New York for 3 days?" 
+   - "List files in the current directory"
 
-GitHub Copilot will automatically discover and use the tools.
+GitHub Copilot will automatically discover and use the tools through the MCP protocol.
+
+## How It Works
+
+The extension automatically:
+- Installs the required Python dependencies (`fastmcp`)
+- Configures the MCP server for GitHub Copilot discovery
+- Sets up the proper MCP configuration files
+- Makes the tools available through the stdio protocol
+
+## Troubleshooting
+
+If GitHub Copilot doesn't discover the tools:
+
+1. **Restart VS Code** completely
+2. **Check Python installation** - Ensure Python 3.x is available in your PATH
+3. **Manual configuration** - The extension creates configuration files at:
+   - `%USERPROFILE%\.vscode\mcp_servers.json`
+   - `%USERPROFILE%\AppData\Roaming\Claude\claude_desktop_config.json`
+4. **Test the server** independently:
+   ```bash
+   python mcp_server.py
+   ```
+   The server should start and wait for stdio input.
 
 ## Requirements
 
-- Python 3.x
+- Python 3.x (in PATH)
 - VS Code 1.80.0+
+- GitHub Copilot extension
 - For building: Node.js and npm
 
 ## Development & Building
@@ -84,9 +112,11 @@ def my_custom_tool(param: str) -> str:
 ```
 
 After adding tools:
-1. Test the Python server independently: `python mcp_server.py`
-2. Rebuild the extension: `vsce package`
-3. Reinstall the updated `.vsix` file
+1. **Save the file**
+2. **Test the Python server** independently: `python mcp_server.py`
+3. **Rebuild the extension**: `vsce package`
+4. **Reinstall** the updated `.vsix` file
+5. **Restart VS Code** to reload the MCP configuration
 
 ### Publishing Changes
 
